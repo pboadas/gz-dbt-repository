@@ -3,12 +3,42 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
+    description: raw data source greenwizzzzz
 
-    tables: 
+    tables:
       - name: sales
-        identifier : raw_gz_sales
-      - name: product
-        identifier : raw_gz_product
-      - name: ship
-        identifier : raw_gz_ship
+        identifier: raw_gz_sales
+        description: table des ventes
+        freshness:
+          warn_after: {count: 90, period: day}
+        loaded_at_field: "CAST(date_date as TIMESTAMP)"
+        columns:
+          - name: concat(orders_id,"_",pdt_id)
+            description: primary key of the table
+            tests:
+              - unique
+              - not_null
 
+      - name: product
+        identifier: raw_gz_product
+        description: table des produits
+        columns:
+          - name: products_id
+            description: primary key of products table
+            tests:
+              - unique
+              - not_null
+                    
+      - name: ship
+        identifier: raw_gz_ship
+        description: table des envoies
+        columns:
+          - name: orders_id
+            description: primary key of ship table
+            tests:
+              - unique
+              - not_null
+
+    
+    
+        
