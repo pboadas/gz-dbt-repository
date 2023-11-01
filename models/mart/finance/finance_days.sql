@@ -1,3 +1,4 @@
+
 SELECT
 COUNT(orders_id) as nb_transactions
 , SUM(revenue) as revenue
