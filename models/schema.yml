@@ -39,6 +39,49 @@ sources:
               - unique
               - not_null
 
+      - name: google
+        identifier: raw_gz_adwords
+        description: table des ads google - clée primaire campaign key + date_date
+        columns:
+          - name: concat(date_date,"_",campaign_key)
+            description: primary key of gads table table
+            tests:
+              - unique
+              - not_null
+      - name: bing
+        identifier: raw_gz_bing
+        description: table des ads bing - clée primaire campaign key
+        columns:
+          - name: concat(date_date,"_",campaign_key)
+            description: primary key of bing ads table table
+            tests:
+              - unique
+              - not_null
+    
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: table des ads facebook - clée primaire campaign key + date_date
+        columns:
+          - name: concat(date_date,"_",campaign_key)
+            description: primary key of bing ads table table
+            tests:
+              - unique
+              - not_null
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: table des ads facebook - clée primaire campaign key + date_date
+        columns:
+          - name: concat(date_date,"_",campaign_key)
+            description: primary key of bing ads table table
+            tests:
+              - unique
+              - not_null
+          - name: camPGN_name	
+            tests:
+              - not_null
+
+
+
     
     
         
