@@ -1,6 +1,7 @@
 
 SELECT
-COUNT(orders_id) as nb_transactions
+date_date
+,COUNT(orders_id) as nb_transactions
 , SUM(revenue) as revenue
 , SAFE_DIVIDE(SUM(revenue),COUNT(orders_id)) as avg_basket
 , SUM(margin) as margin
